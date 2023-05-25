@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import PrefectureSelector from './PrefectureSelector.vue';
-import DataChart from './DataChart.vue';
 </script>
 
 <template>
   <div>
-    <h1>タイトル</h1>
-
+    <h1>年代別の人口の変化</h1>
     <PrefectureSelector />
-    <DataChart />
   </div>
 </template>
 
