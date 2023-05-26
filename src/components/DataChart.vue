@@ -56,7 +56,10 @@ const chartData = {
       fontSize: '1.2rem'
     }
   },
-  series: dataObject
+  series: dataObject,
+  accessibility: {
+    enabled: false
+  }
 };
 
 const props = defineProps<{
