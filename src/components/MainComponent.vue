@@ -3,8 +3,8 @@ import PrefectureSelector from './PrefectureSelector.vue';
 </script>
 
 <template>
-  <div>
-    <h1>年代別の人口の変化</h1>
+  <div class="wrap">
+    <h1>都道府県別の人口の推移</h1>
     <PrefectureSelector />
   </div>
 </template>

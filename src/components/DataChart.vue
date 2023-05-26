@@ -4,13 +4,12 @@ import HighchartsVue from 'vue3-highcharts';
 import { Prefecture, DataObject } from '../interface/props';
 
 let dataObject: DataObject[] = [];
-// チャートのデータを保持するためのリファレンス
 const chartData = {
   chart: {
     defaultSeriesType: 'line'
   },
   title: {
-    text: '都道府県の人口の推移',
+    text: '推移のグラフ',
     style: { margin: '10px 100px 0 0', fontSize: '2rem' }
   },
   xAxis: {
@@ -18,12 +17,12 @@ const chartData = {
     title: {
       text: '年度',
       style: {
-        fontSize: '1.6rem'
+        fontSize: '1.4rem'
       }
     },
     labels: {
       style: {
-        fontSize: '1.4rem'
+        fontSize: '1.2rem'
       }
     }
   },
@@ -31,7 +30,7 @@ const chartData = {
     title: {
       text: '人口数',
       style: {
-        fontSize: '1.6rem'
+        fontSize: '1.4rem'
       }
     },
     plotLines: [
@@ -43,25 +42,19 @@ const chartData = {
     ],
     labels: {
       style: {
-        fontSize: '1.4rem'
+        fontSize: '1.2rem'
       }
     }
   },
   tooltip: {
     style: {
-      fontSize: '1.4rem'
+      fontSize: '1.2rem'
     }
   },
   legend: {
-    //項目名
-    // className: 'dataName'
-    // layout: 'proximate',
-    // style: {
-    //   left: 'auto',
-    //   bottom: 'auto',
-    //   right: '10px',
-    //   top: '100px'
-    // }
+    itemStyle: {
+      fontSize: '1.2rem'
+    }
   },
   series: dataObject
 };
@@ -75,7 +68,6 @@ let oldData: Prefecture[] = [];
 watch(
   () => props.prefecturesProps,
   (newData) => {
-    console.log('watch');
     if (newData) {
       const newLength = newData.length;
       const oldLength = oldData.length;
@@ -113,9 +105,7 @@ watch(
 </script>
 
 <template>
-  <HighchartsVue :options="chartData" :animateOnUpdate="true" v-if="displayStatus"></HighchartsVue>
+  <div class="cont-wrap">
+    <HighchartsVue :options="chartData" :animateOnUpdate="true" v-if="displayStatus"></HighchartsVue>
+  </div>
 </template>
-
-<style lang="scss" scoped>
-@import '../assets/scss/dataChart.scss';
-</style>

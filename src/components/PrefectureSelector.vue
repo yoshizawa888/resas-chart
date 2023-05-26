@@ -46,12 +46,16 @@ const checkField = (e: Event) => {
 </script>
 
 <template>
-  <div>都道府県</div>
-  <label v-for="prefecture in prefectures" :key="prefecture.prefCode">
-    <input type="checkbox" name="prefecture" :value="prefecture.prefCode" @change="checkField" />
-    {{ prefecture.prefName }}
-  </label>
-  <DataChart :prefecturesProps="propsData" />
+  <div class="cont-wrap">
+    <div class="ttl">都道府県</div>
+    <div class="list">
+      <label class="item" v-for="prefecture in prefectures" :key="prefecture.prefCode">
+        <input type="checkbox" name="prefecture" :value="prefecture.prefCode" @change="checkField" />
+        {{ prefecture.prefName }}
+      </label>
+    </div>
+    <DataChart :prefecturesProps="propsData" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
