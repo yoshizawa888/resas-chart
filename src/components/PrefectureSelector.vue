@@ -34,13 +34,11 @@ const checkField = (e: Event) => {
         const prefectureName = prefecture ? prefecture.prefName : '';
 
         const populationData = response.data.result.data[0].data;
-        propsData.value.push({ name: prefectureName, data: populationData });
+        propsData.value.push({ name: prefectureName, data: populationData, value: target.value });
       });
   } else {
-    const index = propsData.value.findIndex((item) => item.name === target.value);
-    if (index === -1) {
-      propsData.value.splice(index, 1);
-    }
+    const index = propsData.value.findIndex((item) => item.value === target.value);
+    propsData.value.splice(index, 1);
   }
 };
 </script>

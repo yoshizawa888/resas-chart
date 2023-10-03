@@ -6,6 +6,7 @@ export interface PrefectureData {
 export interface Prefecture {
   name: string;
   data: PrefectureData[];
+  value: string;
 }
 
 export interface DataObject {
